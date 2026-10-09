@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="INNOVATEX FOR STUDENTS — Organised by Student Innovation Council, Tulsiramji Gaikwad-Patil College of Engineering & Technology (Autonomous), Nagpur. Ideas Turn into Innovation." />
+  <meta name="theme-color" content="#060609" />
+  <title>INNOVATEX FOR STUDENTS · Student Innovation Council · TGPCET</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── SCROLL PROGRESS ─── -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Scroll progress"></div>
+
+  <!-- ─── PARTICLES BACKGROUND ─── -->
+  <div class="particles-bg" id="particlesBg" aria-hidden="true"></div>
+
+  <!-- ─── FLOATING HEADER ─── -->
+  <nav class="floating-header">
+    <div class="header-brand">
+      <img src="assets/logo.png" alt="TGPCET Logo" class="header-logo-small" />
+      <span class="brand-text">INNOVATEX</span>
+    </div>
+    <div class="header-nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#highlights">Highlights</a>
+      <a href="#agenda">Schedule</a>
+      <a href="#registration">Registration</a>
+      <a href="#dignitaries">Dignitaries</a>
+    </div>
+    <div class="header-status">
+      <span class="status-dot"></span>
+      THIS SATURDAY · 4:30 PM
+    </div>
+    <button class="header-reg-btn" id="headerRegBtn">Register · ₹50</button>
+  </nav>
+
+  <!-- ─── HERO SECTION ─── -->
+  <header class="hero tech-layout" id="overview">
+    <div class="tech-grid-bg"></div>
+    <div class="noise-overlay"></div>
+    <div class="hero-glow-orb hero-glow-1"></div>
+    <div class="hero-glow-orb hero-glow-2"></div>
+
+    <div class="hero-center">
+
+      <!-- College Banner & Accreditations -->
+      <div class="college-banner">
+        <span class="college-parent-name">Vidarbha Bahu-uddeshiya Shikshan Sanstha's</span>
+        <h2 class="college-main-name">Tulsiramji Gaikwad-Patil College of Engineering &amp; Technology</h2>
+        <span class="college-autonomous-badge">— An Autonomous Institute —</span>
+        <div class="college-accreditations">
+          <span class="accred-tag highlight">NAAC A+</span>
+          <span class="accred-tag">NBA Accredited</span>
+          <span class="accred-tag highlight">AICTE IDEA Lab</span>
+          <span class="accred-tag">DTE CODE 4151</span>
+        </div>
+      </div>
+
+      <!-- Top badge -->
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Organised by Student Innovation Council</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="main-title">
+        <span class="title-line-main">INNOVATEX</span>
+        <span class="title-line-sub">FOR <span class="title-gold">STUDENTS</span></span>
+      </h1>
+
+      <!-- Tagline Pill -->
+      <div class="hero-tagline-wrap">
+        <span class="tagline-icon">💡</span>
+        <span class="tagline-text">Ideas Turn into Innovation &bull; Let's Innovate Together</span>
+      </div>
+
+      <!-- Animated divider -->
+      <div class="hero-divider">
+        <div class="hero-divider-line"></div>
+        <div class="hero-divider-diamond">◆</div>
+        <div class="hero-divider-line"></div>
+      </div>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle">
+        Join us at TGPCET Nagpur for an impactful symposium dedicated to <strong>real-world research opportunities</strong>, cutting-edge project ideation, expert panels, and student-driven innovation.
+      </p>
+
+      <!-- Countdown timer -->
+      <div id="countdownTimer"></div>
+
+      <!-- Event Info Cards -->
+      <div class="hero-info-row">
+        <div class="hero-info-card">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <div>
+            <span class="info-label">DATE</span>
+            <span class="info-value">THIS SATURDAY</span>
+            <span class="info-sub" id="heroDateDisplay">4:30 PM Onwards</span>
+          </div>
+        </div>
+        <div class="hero-info-divider"></div>
+        <div class="hero-info-card">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <div>
+            <span class="info-label">TIME</span>
+            <span class="info-value">4:30 PM – 6:30 PM</span>
+            <span class="info-sub">IST (2 Hours)</span>
+          </div>
+        </div>
+        <div class="hero-info-divider"></div>
+        <div class="hero-info-card">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <div>
+            <span class="info-label">VENUE</span>
+            <span class="info-value">TGPCET Campus</span>
+            <span class="info-sub">Nagpur, Maharashtra</span>
+          </div>
+        </div>
+        <div class="hero-info-divider"></div>
+        <div class="hero-info-card">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M14.8 9A2 2 0 0 0 13 8h-2a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-2a2 2 0 0 1-1.8-1" />
+            <path d="M12 6v2m0 8v2" />
+          </svg>
+          <div>
+            <span class="info-label">ENTRY FEE</span>
+            <span class="info-value" style="color:var(--accent-gold-light)">₹50/-</span>
+            <span class="info-sub">Per Person</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hero-actions-group">
+        <a href="#dignitaries" class="btn-primary-action">
+          📜 Dignitary Invitations
+        </a>
+        <button class="btn-secondary-action" id="heroRegBtn">
+          ⚡ Register Online (₹50)
+        </button>
+        <button class="btn-outline-action" id="heroPosterBtn">
+          🖼️ View Official Poster
+        </button>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero-scroll-hint">
+        <div class="hero-scroll-line"></div>
+        <span>SCROLL TO EXPLORE HIGHLIGHTS &amp; GUESTS</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ─── 5 FOCUS PILLARS ─── -->
+  <section class="content-section" id="highlights">
+    <div class="section-header-center">
+      <div class="section-badge">
+        <span>✦</span> KEY EVENT PILLARS
+      </div>
+      <h2 class="section-title">
+        Igniting Student <span class="section-title-highlight">Innovation</span>
+      </h2>
+      <p class="section-desc">
+        Designed for aspiring engineers, researchers, and creators to transform ideas into tangible technological advancements.
+      </p>
+    </div>
+
+    <div class="feature-pills-container">
+      <div class="feature-pill-card">
+        <span class="pill-icon">💡</span>
+        <span class="pill-text">Innovative Ideas</span>
+      </div>
+      <div class="feature-pill-card">
+        <span class="pill-icon">👥</span>
+        <span class="pill-text">Experts &amp; Seniors</span>
+      </div>
+      <div class="feature-pill-card">
+        <span class="pill-icon">🔬</span>
+        <span class="pill-text">R&amp;D Talks</span>
+      </div>
+      <div class="feature-pill-card">
+        <span class="pill-icon">🌐</span>
+        <span class="pill-text">Networking Opportunities</span>
+      </div>
+      <div class="feature-pill-card">
+        <span class="pill-icon">🎙️</span>
+        <span class="pill-text">R&amp;D Discussion</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── THE 4-STAGE INNOVATION PATHWAY ─── -->
+  <section class="content-section">
+    <div class="section-header-center">
+      <div class="section-badge">
+        <span>✦</span> THE 4-STEP STAIRCASE
+      </div>
+      <h2 class="section-title">
+        Your Innovation <span class="section-title-highlight">Journey</span>
+      </h2>
+      <p class="section-desc">
+        Ascend through each level of growth from ideation to real-world impact.
+      </p>
+    </div>
+
+    <div class="staircase-grid">
+      <div class="staircase-step-card">
+        <span class="step-number-tag">STEP 01</span>
+        <h3 class="step-title">Explore</h3>
+        <p class="step-desc">
+          Identify real-world problems, survey existing patents, and discover interdisciplinary research domains at TGPCET.
+        </p>
+      </div>
+
+      <div class="staircase-step-card">
+        <span class="step-number-tag">STEP 02</span>
+        <h3 class="step-title">Learn</h3>
+        <p class="step-desc">
+          Absorb specialized industry knowledge through keynote expert talks and experienced guidance from accomplished seniors.
+        </p>
+      </div>
+
+      <div class="staircase-step-card">
+        <span class="step-number-tag">STEP 03</span>
+        <h3 class="step-title">Collaborate</h3>
+        <p class="step-desc">
+          Form multidisciplinary teams, connect with labs and mentors, and brainstorm high-impact research projects together.
+        </p>
+      </div>
+
+      <div class="staircase-step-card">
+        <span class="step-number-tag">STEP 04</span>
+        <h3 class="step-title">Grow</h3>
+        <p class="step-desc">
+          Leverage funding opportunities, college incubation support, and kickstart your innovation trajectory toward national impact.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DEEP DIVE: R&D & SCHEDULE ─── -->
+  <section class="content-section" id="agenda">
+    <div class="deepdive-grid">
+
+      <!-- R&D Innovation & Discussion -->
+      <div class="deepdive-box">
+        <div class="deepdive-box-header">
+          <div class="box-header-icon">💡</div>
+          <h3 class="box-header-title">R&amp;D Innovation &amp; Discussion</h3>
+        </div>
+        <ul class="box-bullet-list">
+          <li class="box-bullet-item">
+            <span class="bullet-check-icon">✓</span>
+            <span>Explore real-world research opportunities</span>
+          </li>
+          <li class="box-bullet-item">
+            <span class="bullet-check-icon">✓</span>
+            <span>Learn about innovative ideas &amp; projects</span>
+          </li>
+          <li class="box-bullet-item">
+            <span class="bullet-check-icon">✓</span>
+            <span>Get inspired by experts and seniors</span>
+          </li>
+          <li class="box-bullet-item">
+            <span class="bullet-check-icon">✓</span>
+            <span>Build new innovative connections</span>
+          </li>
+          <li class="box-bullet-item">
+            <span class="bullet-check-icon">✓</span>
+            <span>Know about funding opportunities &amp; campus resources</span>
+          </li>
+          <li class="box-bullet-item">
+            <span class="bullet-check-icon">✓</span>
+            <span>Kickstart your innovation journey at TGPCET</span>
+          </li>
+          <li class="box-bullet-item">
+            <span class="bullet-check-icon">✓</span>
+            <span>Collaborate on impactful research projects</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Programme Schedule -->
+      <div class="deepdive-box">
+        <div class="deepdive-box-header">
+          <div class="box-header-icon">🗓️</div>
+          <h3 class="box-header-title">Programme Schedule</h3>
+        </div>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">4:30 PM – 4:45 PM</div>
+            <h4 class="timeline-title">Opening &amp; Welcome Address</h4>
+            <p class="timeline-desc">Inauguration by Student Innovation Council dignitaries &amp; patrons.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">4:45 PM – 5:30 PM</div>
+            <h4 class="timeline-title">Following with Expert Talk</h4>
+            <p class="timeline-desc">Keynote insights from leading research pioneers and industry mentors.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">5:30 PM – 6:00 PM</div>
+            <h4 class="timeline-title">Panel Discussion</h4>
+            <p class="timeline-desc">Interactive discourse between seniors, research faculty, and students.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">6:00 PM – 6:30 PM</div>
+            <h4 class="timeline-title">Research &amp; Developments Roadmap Discussion</h4>
+            <p class="timeline-desc">Strategic campus innovation roadmap, funding mechanisms, and Q&amp;A networking.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── REGISTRATION & QR SHOWCASE ─── -->
+  <section class="content-section" id="registration">
+    <div class="registration-showcase-box">
+      <div class="reg-text-side">
+        <div class="reg-badge-fee">
+          <span class="fee-coin">🪙</span>
+          <div>
+            <span class="fee-amount">₹50/-</span>
+            <span class="fee-unit">ENTRY FEE PER PERSON</span>
+          </div>
+        </div>
+        <h2 class="reg-headline">Ready to Kickstart Your Innovation Journey?</h2>
+        <p class="reg-instructions">
+          Scan the registration QR code using any UPI or camera app to secure your entry pass. You can also register directly online through our instant registration portal.
+        </p>
+        <div class="reg-btn-actions">
+          <button class="btn-primary-action" id="cardRegBtn">
+            ⚡ Register Online Now
+          </button>
+          <button class="btn-outline-action" id="cardPosterBtn">
+            🖼️ View Official Poster
+          </button>
+        </div>
+      </div>
+
+      <div class="reg-qr-side">
+        <img src="assets/qr_code.png" alt="Scan for Registration" class="reg-qr-image" />
+        <span class="reg-qr-caption">Scan for Registration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── VIP INVITATIONS & DIGNITARY TERMINAL ─── -->
+  <section class="content-section" id="dignitaries">
+    <div class="section-header-center">
+      <div class="section-badge">
+        <span>✦</span> VIP INVITATION TERMINAL
+      </div>
+      <h2 class="section-title">
+        Honoured Patrons &amp; <span class="section-title-highlight">Leadership</span>
+      </h2>
+      <p class="section-desc">
+        Select any dignitary to decrypt their personalized 3D Holographic VIP Pass, complete with dynamic iridescent foil, 3D gyroscope tilt, flippable itinerary, and RSVP confirmation.
+      </p>
+    </div>
+
+    <!-- HUD Control Bar -->
+    <div class="holo-terminal-controls">
+      <!-- Search input -->
+      <div class="holo-search-wrap">
+        <span class="holo-search-icon">🔍</span>
+        <input type="text" id="dignitarySearch" class="holo-search-input" placeholder="Search by name, role, or department..." autocomplete="off" />
+        <button id="clearSearchBtn" class="holo-search-clear" style="display:none;" aria-label="Clear search">&times;</button>
+      </div>
+
+      <!-- Tier Filters -->
+      <div class="holo-tier-filters" id="tierFilters">
+        <button class="holo-filter-btn active" data-tier="all">
+          <span class="filter-dot"></span> All Patrons <span class="filter-count" id="countAll">21</span>
+        </button>
+        <button class="holo-filter-btn" data-tier="0">
+          🏛️ Leadership &amp; Governance <span class="filter-count">5</span>
+        </button>
+        <button class="holo-filter-btn" data-tier="1">
+          🎓 Academic Administration <span class="filter-count">7</span>
+        </button>
+        <button class="holo-filter-btn" data-tier="2">
+          ⚙️ Directorial Board <span class="filter-count">7</span>
+        </button>
+        <button class="holo-filter-btn" data-tier="3">
+          👥 Departments &amp; Faculty <span class="filter-count">2</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dignitaries Grid -->
+    <div class="holo-cards-grid" id="holoCardsGrid">
+      <!-- Injected by JavaScript -->
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer">
+    <div class="footer-line"></div>
+    <p class="footer-college">
+      Tulsiramji Gaikwad-Patil College of Engineering &amp; Technology, Nagpur
+    </p>
+    <p class="footer-dept">
+      An Autonomous Institute &bull; NAAC A+ Grade &bull; NBA Accredited &bull; AICTE IDEA Lab
+    </p>
+    <p style="margin-top:0.8rem; font-family:var(--font-title); font-weight:700; color:var(--accent-gold-light); letter-spacing:1.5px;">
+      Organised by STUDENT INNOVATION COUNCIL
+    </p>
+    <p style="font-family:var(--font-mono); font-size:0.75rem; letter-spacing:2px; color:var(--text-muted); margin-top:0.3rem;">
+      INNOVATE &bull; COLLABORATE &bull; CREATE IMPACT
+    </p>
+    <br>
+    <p style="font-size:0.75rem; color:var(--text-muted);">
+      Let's Innovate Together &bull; INNOVATEX 2026
+    </p>
+  </footer>
+
+  <!-- ─── INVITATION PORTAL (populated by JS) ─── -->
+  <div id="invitationPortalRoot"></div>
+
+  <!-- ─── POSTER LIGHTBOX MODAL ─── -->
+  <div class="custom-modal-backdrop" id="posterModal">
+    <div class="custom-modal-container poster-lightbox-container">
+      <button class="custom-modal-close" id="closePosterModal" aria-label="Close poster">&times;</button>
+      <h3 style="font-family:var(--font-title); font-size:1.1rem; color:#fff; margin-bottom:1rem; letter-spacing:1px;">
+        OFFICIAL EVENT POSTER
+      </h3>
+      <img src="assets/innovatex_poster.png" alt="INNOVATEX FOR STUDENTS Official Poster" class="poster-lightbox-img" />
+      <div style="margin-top:1.2rem; display:flex; justify-content:center; gap:1rem;">
+        <a href="assets/innovatex_poster.png" download="innovatex_poster.png" class="btn-primary-action" style="padding:0.6rem 1.2rem; font-size:0.75rem;">
+          ⬇️ Download Poster
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── REGISTRATION MODAL ─── -->
+  <div class="custom-modal-backdrop" id="regModal">
+    <div class="custom-modal-container">
+      <button class="custom-modal-close" id="closeRegModal" aria-label="Close registration">&times;</button>
+      <div id="regModalContent">
+        <div style="text-align:center;">
+          <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-gold-light); letter-spacing:2px; text-transform:uppercase;">
+            Student Registration
+          </span>
+          <h2 style="font-family:var(--font-title); font-size:1.6rem; color:#ffffff; margin-top:0.3rem;">
+            Register for INNOVATEX
+          </h2>
+          <p style="font-family:var(--font-body); font-size:0.85rem; color:var(--text-muted); margin-top:0.3rem;">
+            Entry Fee: <strong style="color:var(--accent-gold-light);">₹50/-</strong> per person &bull; TGPCET Campus
+          </p>
+        </div>
+
+        <form class="reg-form-grid" id="regForm">
+          <div class="form-field-group">
+            <label class="form-label" for="regName">Full Name *</label>
+            <input type="text" id="regName" class="form-input" placeholder="e.g. John Doe" required />
+          </div>
+
+          <div class="form-field-group">
+            <label class="form-label" for="regEmail">Email Address *</label>
+            <input type="email" id="regEmail" class="form-input" placeholder="e.g. john@tgpcet.com" required />
+          </div>
+
+          <div class="form-field-group">
+            <label class="form-label" for="regPhone">Contact Number *</label>
+            <input type="tel" id="regPhone" class="form-input" placeholder="e.g. +91 9876543210" required />
+          </div>
+
+          <div class="form-field-group">
+            <label class="form-label" for="regBranch">Department / Branch *</label>
+            <select id="regBranch" class="form-select" required>
+              <option value="" disabled selected>Select Department</option>
+              <option value="AIML">Artificial Intelligence &amp; Machine Learning (AIML)</option>
+              <option value="CSE">Computer Science &amp; Engineering (CSE)</option>
+              <option value="IT">Information Technology (IT)</option>
+              <option value="ECE">Electronics &amp; Communication (ECE)</option>
+              <option value="ME">Mechanical Engineering (ME)</option>
+              <option value="CE">Civil Engineering (CE)</option>
+              <option value="EE">Electrical Engineering (EE)</option>
+              <option value="Other">Other Branch</option>
+            </select>
+          </div>
+
+          <div class="form-field-group">
+            <label class="form-label" for="regYear">Year of Study *</label>
+            <select id="regYear" class="form-select" required>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year" selected>2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="Final Year">Final Year</option>
+            </select>
+          </div>
+
+          <div style="background:rgba(245, 158, 11, 0.08); border:1px solid rgba(245, 158, 11, 0.3); border-radius:8px; padding:0.9rem; display:flex; align-items:center; gap:1rem;">
+            <img src="assets/qr_code.png" alt="UPI QR" style="width:60px; height:60px; background:#fff; padding:3px; border-radius:4px;" />
+            <div style="font-size:0.75rem; color:#e4e4e7; line-height:1.4;">
+              Pay <strong style="color:var(--accent-gold-light);">₹50</strong> via QR scan or at entry desk on event day.
+            </div>
+          </div>
+
+          <button type="submit" class="form-submit-btn">
+            Confirm Registration &bull; ₹50
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 3D HOLOGRAPHIC VIP PASS HUD (MODAL) ─── -->
+  <div class="holo-portal-backdrop" id="holoPortalBackdrop">
+    <button class="holo-portal-close" id="closeHoloPortal" aria-label="Close VIP Pass">&times;</button>
+    
+    <div class="holo-hud-header">
+      <span class="hud-pulse-dot"></span>
+      <span>SECURE HOLOGRAPHIC PROJECTION &bull; VIP ACCESS PASS</span>
+    </div>
+
+    <div class="holo-scene">
+      <div class="holo-card-3d" id="holoCard3d">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <div class="holo-actions-bar" id="holoActionsBar">
+      <!-- Actions rendered by JS -->
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
