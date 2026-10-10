@@ -1201,16 +1201,214 @@ function openHoloPassModal(item) {
     </div>
   `;
 
+
+/* ─────────────────────────────
+   NATIVE WEB AUDIO SYNTHESIZER
+   Plays futuristic laser chime without external audio files
+   ───────────────────────────── */
+function playSciFiChime() {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const now = ctx.currentTime;
+
+    // Arpeggio notes: C5 (523Hz), E5 (659Hz), G5 (784Hz), C6 (1046Hz)
+    const notes = [523.25, 659.25, 783.99, 1046.50];
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now + i * 0.08);
+
+      gain.gain.setValueAtTime(0.001, now + i * 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.25, now + i * 0.08 + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.08 + 0.6);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now + i * 0.08);
+      osc.stop(now + i * 0.08 + 0.6);
+    });
+
+    // Sub-bass cyber pulse
+    const subOsc = ctx.createOscillator();
+    const subGain = ctx.createGain();
+    subOsc.type = 'triangle';
+    subOsc.frequency.setValueAtTime(160, now);
+    subOsc.frequency.exponentialRampToValueAtTime(50, now + 0.35);
+
+    subGain.gain.setValueAtTime(0.35, now);
+    subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
+    subOsc.connect(subGain);
+    subGain.connect(ctx.destination);
+
+    subOsc.start(now);
+    subOsc.stop(now + 0.35);
+  } catch (err) {
+    console.warn('Audio synthesis bypassed:', err);
+  }
+}
+
+/* ─────────────────────────────
+   CYBER CELEBRATION PARTICLES CANNON
+   ───────────────────────────── */
+function playCyberCelebration(sourceEl) {
+  playSciFiChime();
+
+  const container = document.createElement('div');
+  container.className = 'cyber-confetti-container';
+  document.body.appendChild(container);
+
+  const colors = ['#f59e0b', '#fbbf24', '#22d3ee', '#38bdf8', '#34d399', '#ffffff', '#a855f7'];
+  const symbols = ['✦', '◆', '★', '●', '▲', '■', '⚡'];
+
+  const count = 55;
+  const rect = sourceEl ? sourceEl.getBoundingClientRect() : null;
+  const startX = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+  const startY = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'cyber-particle';
+    const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+    const speed = 140 + Math.random() * 320;
+    const vx = Math.cos(angle) * speed;
+    const vy = Math.sin(angle) * speed - 60;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+    const size = 10 + Math.random() * 16;
+    const dur = (1.2 + Math.random() * 0.7).toFixed(2);
+
+    p.textContent = symbol;
+    p.style.color = color;
+    p.style.fontSize = `${size}px`;
+    p.style.textShadow = `0 0 14px ${color}`;
+    p.style.left = `${startX}px`;
+    p.style.top = `${startY}px`;
+    p.style.setProperty('--vx', `${vx}px`);
+    p.style.setProperty('--vy', `${vy}px`);
+    p.style.setProperty('--rot', `${Math.random() * 720 - 360}deg`);
+    p.style.setProperty('--dur', `${dur}s`);
+
+    container.appendChild(p);
+  }
+
+  setTimeout(() => {
+    container.remove();
+  }, 2200);
+}
+
+/* ─────────────────────────────
+   CANVAS VIP PASS IMAGE GENERATOR
+   Renders and downloads official high-res VIP Pass image
+   ───────────────────────────── */
+function downloadVIPPassCanvas(item, satInfo) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1200;
+  canvas.height = 700;
+  const ctx = canvas.getContext('2d');
+
+  // Background
+  const bgGrad = ctx.createLinearGradient(0, 0, 1200, 700);
+  bgGrad.addColorStop(0, '#0a0d18');
+  bgGrad.addColorStop(0.5, '#12182c');
+  bgGrad.addColorStop(1, '#070912');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, 1200, 700);
+
+  // Outer Neon Cyber Borders
+  ctx.strokeStyle = '#f59e0b';
+  ctx.lineWidth = 6;
+  ctx.strokeRect(30, 30, 1140, 640);
+
+  ctx.strokeStyle = '#22d3ee';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(40, 40, 1120, 620);
+
+  // College & Event Header
+  ctx.fillStyle = '#a1a1aa';
+  ctx.font = '600 20px "IBM Plex Mono", monospace';
+  ctx.fillText("TULSIRAMJI GAIKWAD-PATIL COLLEGE OF ENGINEERING & TECHNOLOGY (AUTONOMOUS)", 70, 95);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 48px "Space Grotesk", sans-serif';
+  ctx.fillText("INNOVATEX FOR STUDENTS", 70, 160);
+
+  ctx.fillStyle = '#fbbf24';
+  ctx.font = '700 22px "Space Grotesk", sans-serif';
+  ctx.fillText("ORGANISED BY STUDENT INNOVATION COUNCIL • VIP ACCESS PASS", 70, 195);
+
+  // Divider
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(70, 220);
+  ctx.lineTo(1130, 220);
+  ctx.stroke();
+
+  // Dignitary Name & Title
+  const cleanName = item.name.replace(/^Hon'ble\s*/i, '');
+  ctx.fillStyle = '#f59e0b';
+  ctx.font = '600 20px "IBM Plex Mono", monospace';
+  ctx.fillText("HONOURED VIP GUEST & PATRON", 70, 275);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '800 44px "Space Grotesk", sans-serif';
+  ctx.fillText(cleanName, 70, 335);
+
+  ctx.fillStyle = '#22d3ee';
+  ctx.font = '600 24px "IBM Plex Mono", monospace';
+  ctx.fillText(item.title, 70, 375);
+
+  // Reserved Seating & Event Specs Box
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+  ctx.fillRect(70, 415, 1060, 145);
+  ctx.strokeStyle = 'rgba(245, 158, 11, 0.35)';
+  ctx.strokeRect(70, 415, 1060, 145);
+
+  // Specs text
+  ctx.fillStyle = '#fef08a';
+  ctx.font = '600 18px "IBM Plex Mono", monospace';
+  ctx.fillText("DATE", 100, 455);
+  ctx.fillText("TIME", 400, 455);
+  ctx.fillText("VENUE", 700, 455);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '700 22px "Space Grotesk", sans-serif';
+  ctx.fillText(satInfo.formatted, 100, 495);
+  ctx.fillText("4:30 PM – 6:30 PM", 400, 495);
+  ctx.fillText("TGPCET Campus, Nagpur", 700, 495);
+
+  ctx.fillStyle = '#6ee7b7';
+  ctx.font = '700 18px "IBM Plex Mono", monospace';
+  ctx.fillText(`VERIFIED PASS: ${item.passId} • SEATING: DIAS FRONT PAVILION (RESERVED)`, 100, 535);
+
+  // Footer Tagline
+  ctx.fillStyle = '#a1a1aa';
+  ctx.font = '500 18px "IBM Plex Mono", monospace';
+  ctx.fillText("INNOVATE | COLLABORATE | CREATE IMPACT • LET'S INNOVATE TOGETHER", 70, 615);
+
+  // Download link
+  const link = document.createElement('a');
+  link.download = `INNOVATEX_VIP_PASS_${cleanName.replace(/[^a-zA-Z0-9]/g, '_')}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
   // Action Buttons
   actionsBar.innerHTML = `
     <button class="holo-action-btn btn-accept-vip" id="holoAcceptBtn">
-      <span>✓</span> Accept VIP Invitation
+      <span>⚡</span> CONFIRM VIP ATTENDANCE
     </button>
     <button class="holo-action-btn btn-flip-card" id="holoFlipBtn">
       <span>🔄</span> Flip Pass (Itinerary)
     </button>
     <button class="holo-action-btn btn-print-pass" id="holoPrintBtn">
-      <span>🖨️</span> Print / Save Pass
+      <span>🖨️</span> Print Pass
     </button>
   `;
 
@@ -1261,22 +1459,72 @@ function openHoloPassModal(item) {
       if (isAccepted) return;
       isAccepted = true;
 
-      // Log response to Sheet & Web3Forms
-      logResponse(item, 'Accepted');
+      // Stage 1: Authenticating State
+      acceptBtn.classList.add('authenticating');
+      acceptBtn.innerHTML = '<span>⏳</span> AUTHENTICATING CREDENTIALS...';
 
-      // Spawn Celebratory Sparkles
-      spawnSparkles();
+      // Play Sound
+      playSciFiChime();
 
-      // Show VIP Confirmed Stamp
-      const stamp = document.createElement('div');
-      stamp.className = 'pass-accepted-stamp';
-      stamp.innerHTML = 'VIP RSVP CONFIRMED';
-      card3d.querySelector('.holo-face-front').appendChild(stamp);
+      setTimeout(() => {
+        // Stage 2: Celebration & Confirmation
+        acceptBtn.classList.remove('authenticating');
+        acceptBtn.classList.add('confirmed');
+        acceptBtn.innerHTML = '<span>✓</span> VIP ACCESS CONFIRMED';
 
-      acceptBtn.innerHTML = '<span>✓</span> RSVP Recorded';
-      acceptBtn.style.background = '#059669';
-      acceptBtn.style.borderColor = '#34d399';
-      acceptBtn.style.color = '#ffffff';
+        // Trigger Epic Cyber Particle Cannon
+        playCyberCelebration(acceptBtn);
+
+        // Stamp Laser Holographic Seal onto Card
+        const existingStamp = card3d.querySelector('.pass-accepted-stamp');
+        if (!existingStamp) {
+          const stamp = document.createElement('div');
+          stamp.className = 'pass-accepted-stamp';
+          stamp.innerHTML = `
+            <span>VIP RSVP CONFIRMED</span>
+            <span style="font-size:0.62rem; letter-spacing:1px; color:#a7f3d0; margin-top:2px;">
+              DIAS FRONT PAVILION • ROW A RESERVED
+            </span>
+          `;
+          card3d.querySelector('.holo-face-front').appendChild(stamp);
+        }
+
+        // Reveal Confirmed VIP Actions Toolbar
+        const confirmedDiv = document.createElement('div');
+        confirmedDiv.className = 'vip-confirmed-container';
+        
+        const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("INNOVATEX FOR STUDENTS 2026 — TGPCET")}&details=${encodeURIComponent("VIP Access for Hon'ble " + cleanName + " at INNOVATEX FOR STUDENTS.\nTime: 4:30 PM - 6:30 PM\nVenue: TGPCET Campus, Nagpur")}&location=${encodeURIComponent("Tulsiramji Gaikwad-Patil College of Engineering and Technology, Nagpur")}`;
+        
+        const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent("Hon'ble " + cleanName + " has confirmed VIP attendance for INNOVATEX FOR STUDENTS at TGPCET Nagpur this Saturday (4:30 PM - 6:30 PM). 🎉")}`;
+
+        confirmedDiv.innerHTML = `
+          <div class="vip-confirmed-badge-pill">
+            <span class="pill-dot"></span>
+            SEATING: DIAS FRONT PAVILION (RESERVED)
+          </div>
+          <div class="vip-actions-toolbar">
+            <button class="vip-tool-btn btn-dl-png" id="btnDownloadPassPng">
+              <span>📸</span> Download VIP Pass (PNG)
+            </button>
+            <a href="${gcalUrl}" target="_blank" rel="noopener" class="vip-tool-btn btn-cal">
+              <span>📅</span> Add to Google Calendar
+            </a>
+            <a href="${waUrl}" target="_blank" rel="noopener" class="vip-tool-btn btn-wa">
+              <span>📲</span> Share on WhatsApp
+            </a>
+          </div>
+        `;
+
+        actionsBar.appendChild(confirmedDiv);
+
+        // Bind PNG Download
+        document.getElementById('btnDownloadPassPng')?.addEventListener('click', () => {
+          downloadVIPPassCanvas(item, satInfo);
+        });
+
+        // Log response
+        logResponse(item, 'Accepted');
+      }, 500);
     });
   }
 }

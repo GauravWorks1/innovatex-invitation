@@ -4050,3 +4050,254 @@ button:focus-visible {
   pointer-events: none;
   animation: stampIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+
+/* ═══════════════════════════════════
+   ENHANCED CYBER ACCEPT BUTTON & POST-ACCEPT EXPERIENCE
+   ═══════════════════════════════════ */
+.btn-accept-vip {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #fbbf24 100%) !important;
+  background-size: 200% 200% !important;
+  animation: cyberGradientSweep 4s ease infinite alternate;
+  border: 1px solid #fde047 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.4) !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes cyberGradientSweep {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Shimmer laser glare line across button */
+.btn-accept-vip::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  transform: rotate(25deg);
+  animation: btnLaserGlare 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes btnLaserGlare {
+  0% { left: -60%; }
+  35%, 100% { left: 140%; }
+}
+
+.btn-accept-vip:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.8), 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Authenticating state */
+.btn-accept-vip.authenticating {
+  background: linear-gradient(135deg, #0284c7, #06b6d4) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.6) !important;
+  pointer-events: none;
+}
+
+/* Accepted confirmed state */
+.btn-accept-vip.confirmed {
+  background: linear-gradient(135deg, #059669, #10b981) !important;
+  border-color: #6ee7b7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.6) !important;
+}
+
+/* Confirmed Toolbar Container */
+.vip-confirmed-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1rem;
+  animation: confirmedSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes confirmedSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vip-confirmed-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6ee7b7;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+.vip-confirmed-badge-pill .pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+  animation: pulseOpacity 1.2s infinite;
+}
+
+.vip-actions-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.vip-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 6px;
+  font-family: var(--font-title);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-dl-png {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: var(--accent-gold-light);
+}
+
+.btn-dl-png:hover {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-color: #fbbf24;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+.btn-cal {
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  color: var(--accent-cyan);
+}
+
+.btn-cal:hover {
+  background: rgba(34, 211, 238, 0.25);
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.btn-wa {
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  color: #25d366;
+}
+
+.btn-wa:hover {
+  background: rgba(37, 211, 102, 0.25);
+  border-color: #25d366;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+}
+
+/* ═══════════════════════════════════
+   FULLSCREEN CYBER CONFETTI PARTICLES
+   ═══════════════════════════════════ */
+.cyber-confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4000;
+  overflow: hidden;
+}
+
+.cyber-particle {
+  position: absolute;
+  transform-origin: center center;
+  animation: particleBurst var(--dur, 1.4s) cubic-bezier(0.12, 0.8, 0.33, 1) forwards;
+  opacity: 1;
+}
+
+@keyframes particleBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.6) rotate(0deg);
+  }
+  60% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--vx), var(--vy)) scale(1.3) rotate(var(--rot));
+  }
+}
+
+/* Stamp upgrade */
+.pass-accepted-stamp {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  border: 4px solid #34d399;
+  color: #6ee7b7;
+  padding: 0.8rem 1.8rem;
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background: rgba(4, 24, 18, 0.92);
+  box-shadow: 0 0 45px rgba(52, 211, 153, 0.7), inset 0 0 20px rgba(52, 211, 153, 0.3);
+  z-index: 25;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  animation: stampLaserDrop 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes stampLaserDrop {
+  0% {
+    transform: translate(-50%, -50%) scale(2.4) rotate(-30deg);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  65% {
+    transform: translate(-50%, -50%) scale(0.92) rotate(-10deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+    opacity: 1;
+  }
+}
